@@ -48,6 +48,15 @@ class Admin::CommunitiesController < ApplicationController
     @community = @current_community
   end
 
+  def payment_gateways
+    redirect_to edit_details_admin_community_path(@current_community) unless @current_community.braintree_in_use?
+    @selected_tribe_navi_tab = "admin"
+    @selected_left_navi_link = "payment_gateways"
+    @community = @current_community
+
+    render :braintree_payment_gateway
+  end
+
   def posting_allowed
     CommunityMembership.where(:person_id => params[:allowed_to_post]).update_all("can_post_listings = 1")
     CommunityMembership.where(:person_id => params[:disallowed_to_post]).update_all("can_post_listings = 0")

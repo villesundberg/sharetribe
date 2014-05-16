@@ -156,6 +156,16 @@ en:
         facebook_connect_secret: "Facebook client secret"
         invalid_facebook_connect_secret: "Client secret should contain only numbers and letters from a to f."
         save: "Save settings"
+      payment_gateways:
+        payment_gateways: Payment gateways
+      braintree_payment_gateway:
+        braintree_payment_gateway: Braintree Payment API keys
+        environment: "Environment"
+        private_key: "Private Key"
+        public_key: "Public Key"
+        client_side_encryption_key: "Client-Side Encryption (CSE) Key"
+        merchant_id: "Merchant ID"
+        master_merchant_id: "Master Merchant ID"
     custom_fields:
       edit:
         edit_listing_field: "Edit listing field '%{field_name}'"
