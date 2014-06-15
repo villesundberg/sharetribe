@@ -3,7 +3,11 @@ class Location < ActiveRecord::Base
   belongs_to :person
   belongs_to :listing
   belongs_to :community
-
+  
+  before_create do
+    self.location_type ||= "person" if person
+  end
+  
   def search_and_fill_latlng(address=nil, locale=APP_CONFIG.default_locale)
     okresponse = false
     geocoder = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&address="
