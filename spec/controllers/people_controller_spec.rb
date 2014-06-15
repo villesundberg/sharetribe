@@ -94,6 +94,16 @@ describe PeopleController do
       Person.find_by_username(username).should_not be_nil
       Person.count.should == person_count + 1
     end
+    
+    it "creates a person with a location" do
+      @request.host = "test.lvh.me"
+      username = generate_random_username
+      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => "", :location_attributes => { :address => "Finland" }}, :community => "test"}
+      person = Person.find_by_username(username)
+      person.should_not be_nil
+      person.location.should_not be_nil
+      person.location.address.should eq("Finland")
+    end
 
     it "doesn't create a person for community if email is not allowed" do
 
