@@ -42,6 +42,8 @@ class Person < ActiveRecord::Base
   has_many :emails, :dependent => :destroy
 
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  accepts_nested_attributes_for :location
+  
   has_one :braintree_account, :dependent => :destroy
 
   has_many :participations, :dependent => :destroy

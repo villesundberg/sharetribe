@@ -914,6 +914,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password1" },
+      "person[location_attributes][address]": { required: function() { return document.getElementById("person_location_attributes_address") !== null; }, minlength: 4 },
       "recaptcha_response_field": {required: true, captcha: true },
       "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
     },
