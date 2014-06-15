@@ -200,6 +200,7 @@ CREATE TABLE `communities` (
   `default_min_days_between_community_updates` int(11) DEFAULT '7',
   `listing_location_required` tinyint(1) DEFAULT '0',
   `custom_head_script` text COLLATE utf8_unicode_ci,
+  `location_required_on_signup` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `index_communities_on_domain` (`domain`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1847,3 +1848,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140604135743');
 INSERT INTO schema_migrations (version) VALUES ('20140610115132');
 
 INSERT INTO schema_migrations (version) VALUES ('20140610115217');
+
+INSERT INTO schema_migrations (version) VALUES ('20140615080852');
