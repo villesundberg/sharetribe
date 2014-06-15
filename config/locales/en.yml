@@ -1473,6 +1473,7 @@ en:
       invitation_code: "Invitation code"
       not_required: ", not required"
       password_again: "Confirm password"
+      address_placeholder: "Address, City, ZIP Code"
       show_my_name_to_others: "Show my real name to other %{service_name} users"
       sign_up: "Create a new %{service_name} account"
       terms: "terms of use"

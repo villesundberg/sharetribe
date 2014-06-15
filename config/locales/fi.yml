@@ -1473,6 +1473,7 @@ fi:
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
       password_again: "Salasana uudelleen"
+      address_placeholder: "Osoite, Paikkakunta, Postinumero"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus %{service_name_illative}"
       terms: käyttöehdot
