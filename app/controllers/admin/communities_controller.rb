@@ -155,9 +155,10 @@ class Admin::CommunitiesController < ApplicationController
     permitted_params = [
       :join_with_invite_only, :users_can_invite_new_users, :private,
       :require_verification_to_post_listings,
-      :show_category_in_listing_list, :show_listing_publishing_date,
-      :hide_expiration_date, :listing_comments_in_use,
-      :automatic_confirmation_after_days, :automatic_newsletters,
+      :location_required_on_signup, :show_category_in_listing_list,
+      :show_listing_publishing_date, :hide_expiration_date,
+      :listing_comments_in_use, :automatic_confirmation_after_days,
+      :automatic_newsletters,
       :default_min_days_between_community_updates,
       :email_admins_about_new_members
     ]

@@ -121,6 +121,7 @@ fi:
         users_can_invite_new_users: "Käyttäjillä on oikeus kutsua muita käyttäjiä yhteisöön"
         private: "Yksityinen yhteisö (vain kirjautuneet käyttäjät näkevät sisällön)"
         require_verification_to_post_listings: "Vain ylläpitäjän erikseen hyväksymät käyttäjät voivat lisätä ilmoituksia"
+        location_required_on_signup: "Käyttäjän täytyy antaa katuosoite liittyäkseen yhteisöön"
         listing_preferences: Ilmoitusasetukset
         transaction_preferences: "Transaktioprosessin asetukset"
         show_listing_publishing_date: "Näytä ilmoituksen julkaisuajankohta ilmoituksen sivulla"

@@ -30,6 +30,9 @@
         .checkbox-container
           = form.check_box :require_verification_to_post_listings
           = form.label :require_verification_to_post_listings, t(".require_verification_to_post_listings"), :class => "settings-checkbox-label"
+        .checkbox-container
+          = form.check_box :location_required_on_signup
+          = form.label :location_required_on_signup, t(".location_required_on_signup"), :class => "settings-checkbox-label"
 
     .row
       .col-12

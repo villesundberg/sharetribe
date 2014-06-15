@@ -121,6 +121,7 @@ en:
         users_can_invite_new_users: "All users can invite new users to this community"
         private: "This community is private (only registered users can see the content)"
         require_verification_to_post_listings: "Only users verified by admin can post new listings"
+        location_required_on_signup: "Users are required to enter an address when signing up"
         listing_preferences: "Listing preferences"
         transaction_preferences: "Transaction preferences"
         show_listing_publishing_date: "Display publishing date of the listing on the listing page"
