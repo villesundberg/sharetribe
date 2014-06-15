@@ -88,6 +88,7 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   var latitude = document.getElementById(prefix+ "_latitude");
   var longitude = document.getElementById(prefix+ "_longitude");
   var visible = true;
+  var textfieldElement = document.getElementById(n_textfield);
 
   var myOptions = {
     'zoom': 12,
@@ -99,7 +100,7 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
   if (latitude.value != "") {
     setMapCenter(latitude.value, longitude.value, true);
-  } else {
+  } else if (textfieldElement.value == "") {
     setMapCenter(community_location_lat, community_location_lon, false);
   }
   geocoder = new google.maps.Geocoder();
@@ -110,6 +111,8 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
     markerPosition = defaultCenter;
     visible = false;
   }
+
+  update_map(textfieldElement);
 
   marker = new google.maps.Marker({
     'map': map,
