@@ -32,6 +32,8 @@
           %th.arrow-up= sort_link "name"
           %th.arrow-down= sort_link "email"
           %th.arrow-up= sort_link "join_date"
+          - if @current_community.location_required_on_signup?
+            %th Address  
           - if @current_community.require_verification_to_post_listings
             %th{:style => "text-align: center"}= sort_link "posting_allowed"
           %th= t(".admin")
@@ -45,6 +47,8 @@
             %td
               = mail_to member.confirmed_notification_email_addresses.first
             %td= l(membership.created_at, :format => :short_date)
+            - if @current_community.location_required_on_signup?
+              %td= member.street_address  
             - if @current_community.require_verification_to_post_listings
               %td{:style => "text-align: center"}= check_box_tag "posting-allowed[#{member.id}]", member.id, membership.can_post_listings, :class => "admin-members-can-post-listings"
             %td{:style => "text-align: center"}= check_box_tag "is_admin[#{member.id}]", member.id, member.is_admin_of?(@community), :class => "admin-members-is-admin", :disabled => member.eql?(@current_user)
