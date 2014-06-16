@@ -69,9 +69,9 @@
 
     - if @current_community.location_required_on_signup?
       = form.fields_for :location_attributes do |location|  
-        = location.label :address, t("settings.profile.street_address")
-        = location.text_field :address, :class => :text_field, :maxlength => "255", :placeholder => t(".address_placeholder")
-      
+        = location.label :address, t(".address")
+        = location.text_area :address, :class => :text_field, :rows => 3, :placeholder => t(".address_placeholder")
+  
     -# Terms
     .outer-checkbox-container
       .checkbox-container
