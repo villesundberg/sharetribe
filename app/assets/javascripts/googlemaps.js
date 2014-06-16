@@ -112,7 +112,9 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_loc
     visible = false;
   }
 
-  update_map(textfieldElement);
+  if (textfieldElement.value != "") {
+    update_map(textfieldElement);    
+  }
 
   marker = new google.maps.Marker({
     'map': map,
