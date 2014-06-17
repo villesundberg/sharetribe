@@ -4,10 +4,6 @@ class Location < ActiveRecord::Base
   belongs_to :listing
   belongs_to :community
   
-  before_create do
-    self.location_type ||= "person" if person
-  end
-  
   def address=(new_address)
     super(new_address.try(:gsub, "\r\n", ", "))
   end
