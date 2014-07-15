@@ -11,6 +11,7 @@ Feature: Admin edits welcome
     Then I should not have editor open
     When I follow "Edit message"
     Then I should have editor open
+    And I should see "Editable region" in the content frame
     When I send keys "This is a new line to welcome email" to editor
     And I click save on the editor
     Then I should see "This is a new line to welcome email"

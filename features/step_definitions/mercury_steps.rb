@@ -13,7 +13,6 @@ end
 When(/^I send keys "(.*?)" to editor$/) do |keys|
   page.driver.within_frame('mercury_iframe') do
     page.should have_selector("[data-mercury]")
-    sleep 1
     find("[data-mercury]", :visible => false).native.send_keys "#{keys}"
   end
 end
@@ -27,4 +26,9 @@ When /^(?:|I )(?:change|set) the contents? of "(.*?)" to "(.*?)"$/ do |region_id
       jQuery(document).find('##{region_id}').html('#{content}');
     JAVASCRIPT
   end
+end
+
+# Scope step for the mercury content frame
+When /^(.*) in the content frame$/ do |step|
+  page.driver.within_frame('mercury_iframe') { step }
 end
