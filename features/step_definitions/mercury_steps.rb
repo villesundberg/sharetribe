@@ -13,8 +13,8 @@ end
 When(/^I send keys "(.*?)" to editor$/) do |keys|
   page.driver.within_frame('mercury_iframe') do
     page.should have_selector("[data-mercury]")
-    sleep 10
     find("[data-mercury]", :visible => false).native.send_keys "#{keys}"
+    page.should have_content keys
   end
 end
 
