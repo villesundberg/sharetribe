@@ -39,6 +39,7 @@ require 'email_spec/cucumber'
 # steps to use the XPath syntax.
 Capybara.default_selector = :css
 Capybara.ignore_hidden_elements = true
+
 # These settigs could be in prefork block, but Zeus wouldn't run that, so moved here.
 
 # By default, any exception happening in your Rails application will bubble up

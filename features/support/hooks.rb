@@ -1,7 +1,7 @@
 Before do
   Capybara.default_host = 'test.lvh.me'
-  Capybara.server_port = 9887
-  Capybara.app_host = "http://test.lvh.me:9887"
+  Capybara.server_port = 9887 + ENV['TEST_ENV_NUMBER'].to_i
+  Capybara.app_host = "http://test.lvh.me:#{9887 + ENV['TEST_ENV_NUMBER'].to_i}"
   @current_community = Community.find_by_domain("test")
 end
 
@@ -25,28 +25,28 @@ end
 
 Before ('@subdomain2') do
   Capybara.default_host = 'test2.lvh.me'
-  Capybara.app_host = "http://test2.lvh.me:9887"
+  Capybara.app_host = "http://test2.lvh.me:#{Capybara.server_port}"
   @current_community = Community.find_by_domain("test2")
 end
 
 Before ('@no_subdomain') do
   Capybara.default_host = 'lvh.me'
-  Capybara.app_host = "http://lvh.me:9887"
+  Capybara.app_host = "http://lvh.me:#{Capybara.server_port}"
 end
 
 After('@no_subdomain') do
   Capybara.default_host = 'test.lvh.me'
-  Capybara.app_host = "http://test.lvh.me:9887"
+  Capybara.app_host = "http://test.lvh.me:#{Capybara.server_port}"
 end
 
 Before ('@www_subdomain') do
   Capybara.default_host = 'www.lvh.me'
-  Capybara.app_host = "http://www.lvh.me:9887"
+  Capybara.app_host = "http://www.lvh.me:#{Capybara.server_port}"
 end
 
 After('@www_subdomain') do
   Capybara.default_host = 'test.lvh.me'
-  Capybara.app_host = "http://test.lvh.me:9887"
+  Capybara.app_host = "http://test.lvh.me:#{Capybara.server_port}"
 end
 
 After do |scenario|
