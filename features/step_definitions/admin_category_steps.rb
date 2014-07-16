@@ -4,6 +4,7 @@ module AdminCategorySteps
   DOWN_LINK_SELECTOR = ".category-action-down"
 
   def find_category_row(category_name)
+    page.should have_selector(".category-row", :text => category_name)
     find(".category-row", :text => "#{category_name}")
   end
 
@@ -16,6 +17,7 @@ module AdminCategorySteps
   end
 
   def find_down_link_for_category(category_name)
+    page.should have_selector(".category-row", :text => category_name)
     find_category_row(category_name).find(DOWN_LINK_SELECTOR)
   end
 
@@ -73,6 +75,7 @@ When /^I add a new category "(.*?)" with invalid data$/ do |category_name|
 end
 
 When /^I deselect all transaction types$/ do
+  page.should have_selector(".category-transaction-type-checkbox")
   page.all(:css, ".category-transaction-type-checkbox").each do |checkbox|
     checkbox.set(false)
   end

@@ -53,5 +53,6 @@ After do |scenario|
   if(scenario.failed?)
     FileUtils.mkdir_p 'tmp/screenshots'
     save_screenshot("tmp/screenshots/#{scenario.name}.png")
+    Cucumber.wants_to_quit = true
   end
 end

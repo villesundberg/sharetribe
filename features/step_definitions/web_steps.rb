@@ -324,9 +324,7 @@ Then /^I should see validation error$/ do
 end
 
 Then /^I should see (\d+) validation errors$/ do |errors_count|
-  errors = all("label.error");
-  errors.size.should eql(errors_count.to_i)
-  all("label.error").each { |error| error.should be_visible }
+  page.should have_selector("label.error", :count => errors_count)
 end
 
 Then /^take a screenshot$/ do

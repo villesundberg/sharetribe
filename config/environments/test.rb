@@ -28,12 +28,12 @@ Kassi::Application.configure do
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :cache
-  config.action_mailer.cache_settings = { :location => "#{Rails.root}/tmp/cache/action_mailer_cache_delivery#{ENV['TEST_ENV_NUMBER']}.cache" }
-
+  config.action_mailer.cache_settings = { :location => "#{Rails.root}/tmp/cache/action_mailer_cache_delivery#{ENV['TEST_ENV_NUMBER']}-#{Random.rand}.cache" }
+  
   config.active_support.deprecation = :stderr
 
   # As instructed by Devise, to make local mails work
-  config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
+  config.action_mailer.default_url_options = { :host => "test.lvh.me:#{9887 + ENV['TEST_ENV_NUMBER'].to_i}" }
 
   # Register PhantomJS over selenium-webdriver
   if ENV['PHANTOMJS'] then

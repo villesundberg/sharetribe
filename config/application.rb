@@ -52,7 +52,9 @@ module Kassi
 
     # enable custom domain cookies rack middleware
     config.middleware.use "CustomDomainCookie", APP_CONFIG.domain
-
+    
+    config.i18n.enforce_available_locales = true
+    
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
           ["English", "en"],

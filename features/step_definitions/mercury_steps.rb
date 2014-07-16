@@ -13,9 +13,9 @@ end
 When(/^I send keys "(.*?)" to editor$/) do |keys|
   page.driver.within_frame('mercury_iframe') do
     page.should have_selector("[data-mercury]")
-    find("[data-mercury]", :visible => false).native.send_keys "#{keys}"
-    sleep 30
-    page.should have_content keys
+    page.driver.execute_script <<-JAVASCRIPT
+      jQuery(document).find('[data-mercury]').html('#{keys}' + jQuery(document).find('[data-mercury]').html());
+    JAVASCRIPT
   end
 end
 

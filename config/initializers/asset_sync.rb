@@ -1,4 +1,4 @@
-if defined?(AssetSync)
+if defined?(AssetSync) && Rails.env.production?
   AssetSync.configure do |config|
     app_config = Maybe(APP_CONFIG)
     aws_access_key_id     = app_config.aws_access_key_id
@@ -7,7 +7,7 @@ if defined?(AssetSync)
     fog_provider          = app_config.FOG_PROVIDER
 
     enabled = [aws_access_key_id, aws_secret_access_key, fog_directory].all? { |x| x.is_some? }
-
+    
     puts ""
     puts "AssetSync enabled: #{enabled}"
     puts ""
